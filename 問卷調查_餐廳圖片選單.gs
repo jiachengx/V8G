@@ -1,7 +1,10 @@
 function createImageBasedForms() {
-  var formTitles = ['蔬食8_熟食販賣機喜好商品調查_慈中', '蔬食8_熟食販賣機喜好商品調查_慈院'];
+  var formTitles = ['001', '002'];
   var currentFolder = DriveApp.getFileById(ScriptApp.getScriptId()).getParents().next();
   var originalForm = createForm(formTitles[0], currentFolder);
+  
+  // Set sharing permissions for the original form
+  setFormSharingPermissions(originalForm.getId());
   
   // 複製第一個表單來創建第二個表單
   if (formTitles.length > 1) {
@@ -9,6 +12,9 @@ function createImageBasedForms() {
     var copiedFormId = copiedForm.getId();
     var copiedFormUrl = FormApp.openById(copiedFormId).getPublishedUrl();
     Logger.log('複製的表單創建成功。 網址: ' + copiedFormUrl);
+    
+    // Set sharing permissions for the copied form
+    setFormSharingPermissions(copiedFormId);
     
     // 為複製的表單設置新的回應試算表
     var copiedSheet = SpreadsheetApp.create('表單回應: ' + formTitles[1]);
@@ -19,7 +25,7 @@ function createImageBasedForms() {
     var copiedForm = FormApp.openById(copiedFormId);
     copiedForm.setDestination(FormApp.DestinationType.SPREADSHEET, copiedSheet.getId());
     
-    setupSheetWithImageFilenames(copiedSheet, originalForm.getItems());
+    setupSheetWithImageFilenames(copiedSheet, copiedForm.getItems());
   }
 }
 
@@ -34,7 +40,7 @@ function createForm(formTitle, folder) {
     folder.addFile(formFile);
     DriveApp.getRootFolder().removeFile(formFile);
     
-    form.setDescription('請在每張圖片下方選擇您想要的項目，可以多重選擇。');
+    form.setDescription('請在每張圖片下方選擇您想要的項目，可以重複選擇。');
     Logger.log('表單已創建：' + formTitle);
     
     // 創建一個新的試算表來儲存回應
@@ -67,8 +73,11 @@ function createForm(formTitle, folder) {
     var scriptFolder = folder;
     Logger.log('已找到腳本所在資料夾');
     
-    for (var i = 0; i < subFolderNames.length; i++) {
-      var subFolderName = subFolderNames[i];
+    // 只處理最後兩個子資料夾
+    var testFolders = subFolderNames.slice(-2);
+    
+    for (var i = 0; i < testFolders.length; i++) {
+      var subFolderName = testFolders[i];
       Logger.log('處理子資料夾: ' + subFolderName);
       
       // 在腳本所在資料夾中尋找子資料夾
@@ -196,6 +205,29 @@ function calculateSubtotals(sheetId) {
   }
   
   Logger.log('小計已更新。');
+}
+
+function setFormSharingPermissions(formId) {
+  var form = DriveApp.getFileById(formId);
+  
+  // Remove all existing editors and viewers
+  var editors = form.getEditors();
+  for (var i = 0; i < editors.length; i++) {
+    form.removeEditor(editors[i]);
+  }
+  var viewers = form.getViewers();
+  for (var i = 0; i < viewers.length; i++) {
+    form.removeViewer(viewers[i]);
+  }
+  
+  // Set the form to be publicly accessible and fillable by anyone
+  form.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.VIEW);
+  
+  // Ensure the form itself is set to not require sign-in
+  var formApp = FormApp.openById(formId);
+  formApp.setRequireLogin(false);
+  
+  Logger.log('表單權限已設置為公開填寫，無需登入即可使用。');
 }
 
 function testFolderAccess() {
