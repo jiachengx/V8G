@@ -1,5 +1,6 @@
+
 function createImageBasedForms() {
-  var formTitles = ['蔬食8_熟食販賣機商品喜好調查_慈院', '蔬食8_熟食販賣機商品喜好調查_慈中'];
+  var formTitles = ['001', '002'];
   var currentFolder = DriveApp.getFileById(ScriptApp.getScriptId()).getParents().next();
   var originalForm = createForm(formTitles[0], currentFolder);
   
@@ -75,6 +76,7 @@ function createForm(formTitle, folder) {
     
     // 只處理最後兩個子資料夾
     //var testFolders = subFolderNames.slice(-2);
+    var testFolders = subFolderNames;
     
     for (var i = 0; i < testFolders.length; i++) {
       var subFolderName = testFolders[i];
