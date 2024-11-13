@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Center Queue System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4">
+                <h1 class="text-3xl font-bold text-gray-900">
+                    Eye Center Queue Management System
+                </h1>
+            </div>
+        </header>
+
+        <!-- Main Navigation -->
+        <main class="max-w-7xl mx-auto py-6 px-4">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Patient Registration -->
+                <a href="/register" class="block bg-white shadow rounded-lg hover:shadow-lg transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="bg-blue-500 rounded-md p-3">
+                                <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <h2 class="text-lg font-semibold text-gray-900">Patient Registration</h2>
+                                <p class="text-gray-600">Register new patients and assign queue numbers</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Main Dashboard -->
+                <a href="/dashboard" class="block bg-white shadow rounded-lg hover:shadow-lg transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="bg-green-500 rounded-md p-3">
+                                <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <h2 class="text-lg font-semibold text-gray-900">Main Dashboard</h2>
+                                <p class="text-gray-600">View all rooms and queue status</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Data Import -->
+                <a href="/import" class="block bg-white shadow rounded-lg hover:shadow-lg transition-shadow">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="bg-purple-500 rounded-md p-3">
+                                <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <h2 class="text-lg font-semibold text-gray-900">Data Import</h2>
+                                <p class="text-gray-600">Import patient data from Excel</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Room Quick Access -->
+            <div class="mt-8">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Room Quick Access</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Room Operation Links -->
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h3 class="font-medium text-gray-900 mb-2">Operation Panels</h3>
+                        <div class="space-y-2">
+                            <a href="/room-op/R01" class="block text-blue-600 hover:text-blue-800">Room 1 Operations</a>
+                            <a href="/room-op/R02" class="block text-blue-600 hover:text-blue-800">Room 2 Operations</a>
+                            <a href="/room-op/R03" class="block text-blue-600 hover:text-blue-800">Room 3 Operations</a>
+                        </div>
+                    </div>
+
+                    <!-- Room Display Links -->
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h3 class="font-medium text-gray-900 mb-2">Display Screens</h3>
+                        <div class="space-y-2">
+                            <a href="/room/R01" class="block text-blue-600 hover:text-blue-800">Room 1 Display</a>
+                            <a href="/room/R02" class="block text-blue-600 hover:text-blue-800">Room 2 Display</a>
+                            <a href="/room/R03" class="block text-blue-600 hover:text-blue-800">Room 3 Display</a>
+                        </div>
+                    </div>
+
+                    <!-- More rooms can be added here -->
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

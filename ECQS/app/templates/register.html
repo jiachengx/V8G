@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration | Pagpaparehistro ng Pasyente</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen py-8">
+        <!-- Language Toggle -->
+        <div class="container mx-auto px-4 mb-6">
+            <div class="flex justify-end space-x-4">
+                <button onclick="setLanguage('en')" id="btnEn" class="px-4 py-2 rounded-md">English</button>
+                <button onclick="setLanguage('tl')" id="btnTl" class="px-4 py-2 rounded-md">Tagalog</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <!-- Header -->
+                <div class="bg-blue-600 p-6 text-white">
+                    <h1 class="text-3xl font-bold text-center">
+                        <span class="lang-en">Patient Registration</span>
+                        <span class="lang-tl">Pagpaparehistro ng Pasyente</span>
+                    </h1>
+                </div>
+
+                <!-- Registration Form -->
+                <div class="p-6">
+                    <form id="registrationForm" class="space-y-6">
+                        <!-- Name Input -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-en">Full Name</span>
+                                <span class="lang-tl">Buong Pangalan</span>
+                            </label>
+                            <input type="text" id="patientName" required
+                                class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
+                                placeholder="Enter your full name / Ilagay ang iyong buong pangalan">
+                        </div>
+
+                        <!-- Service Type Selection -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-en">Service Type</span>
+                                <span class="lang-tl">Uri ng Serbisyo</span>
+                            </label>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="serviceTypes">
+                                <!-- Service type buttons will be inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700">
+                                <span class="lang-en">Get Queue Number</span>
+                                <span class="lang-tl">Kumuha ng Queue Number</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Queue Number Modal -->
+    <div id="queueModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold mb-4">
+                    <span class="lang-en">Your Queue Number</span>
+                    <span class="lang-tl">Ang Iyong Queue Number</span>
+                </h2>
+                <div id="queueNumber" class="text-6xl font-bold mb-4"></div>
+                <div id="serviceType" class="text-xl mb-6"></div>
+                <p class="text-gray-600 mb-6">
+                    <span class="lang-en">Please wait for your number to be called</span>
+                    <span class="lang-tl">Mangyaring maghintay hanggang tawagin ang iyong numero</span>
+                </p>
+                <button onclick="closeModal()" class="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-700">
+                    <span class="lang-en">Close</span>
+                    <span class="lang-tl">Isara</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/register.js"></script>
+</body>
+</html>
