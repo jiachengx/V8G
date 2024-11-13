@@ -3,7 +3,6 @@
 A bilingual (English/Tagalog) queue management system designed for eye centers in the Philippines. Features voice announcements, color-coded queues, and multiple room management.
 
 ## Features
-
 - Bilingual support (English and Tagalog)
 - Voice announcements in both languages
 - Color-coded queue numbers
@@ -13,6 +12,7 @@ A bilingual (English/Tagalog) queue management system designed for eye centers i
 - Batch data import/export
 - Room-specific displays
 - Operation panels for staff
+- Responsive Website Design
 
 ## Directory Structure
 
@@ -236,7 +236,7 @@ For issues or questions:
 
 ## License
 
-Copyright <2024> Stephen Hsu, jiachengx.hs@gmail.com
+Copyright <2024> Stephen Hsu, jiachengx.hsu@gmail.com
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
