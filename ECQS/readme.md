@@ -108,6 +108,7 @@ python run.py
 ```
 
 2. Access different interfaces:
+- Main Page: `http://[YOUR_IP]:5000/`
 - Main Dashboard: `http://[YOUR_IP]:5000/dashboard`
 - Patient Registration: `http://[YOUR_IP]:5000/register`
 - Room Displays: `http://[YOUR_IP]:5000/room/R[XX]`
