@@ -222,6 +222,11 @@ To modify or extend the system:
 - Secure patient data
 - Clean old records
 
+## Unit Test
+1. Install the dependancy package
+   `pip install pytest pytest-cov`
+2. Run the tests
+   `python -m pytest utest.py -v --cov`
 ## Support
 
 For issues or questions:
